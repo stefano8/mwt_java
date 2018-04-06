@@ -8,6 +8,8 @@ public class Itinerary {
 	private Double difference;
 	private Double duration;
 	private String address;
+	private Double latitude;
+	private Double longitude;
 	private RecommendedSeason recommendedSeason;
 	// relazione con Image (1,1)
 	private Image image;
@@ -84,6 +86,22 @@ public class Itinerary {
 
 	public void setCategoriesItineraries(Category[] categoriesItineraries) {
 		this.categoriesItineraries = categoriesItineraries;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 
 }
