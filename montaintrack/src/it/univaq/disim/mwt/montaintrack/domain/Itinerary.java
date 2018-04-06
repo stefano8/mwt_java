@@ -11,6 +11,7 @@ public class Itinerary {
 	private Double latitude;
 	private Double longitude;
 	private RecommendedSeason recommendedSeason;
+	private String description;
 	// relazione con Image (1,1)
 	private Image image;
 	//relazione con Category (N,N)
@@ -102,6 +103,14 @@ public class Itinerary {
 
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
