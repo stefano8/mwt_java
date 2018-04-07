@@ -22,6 +22,5 @@ public class BusinessException extends Exception {
 		super(arg0);
 	}
 
-	
 
 }
