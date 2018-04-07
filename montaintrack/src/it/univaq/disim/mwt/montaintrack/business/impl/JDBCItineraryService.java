@@ -30,7 +30,7 @@ public class JDBCItineraryService implements ItineraryService{
 			 
 			 ps = con.prepareStatement(sql);
 			 ps.setString(1, itinerary.getName());
-			 //ps.setDifficolty(2, itinerary.getDifficolty());
+			 //ps.setDouble(2, itinerary.getDifficolty());
 			 ps.setDouble(3, itinerary.getDifference());
 			 ps.setDouble(4,itinerary.getDuration());
 			 ps.setString(5, itinerary.getAddress());
