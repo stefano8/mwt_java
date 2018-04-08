@@ -22,9 +22,9 @@ public class Montaintrack {
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		
-while(true) {
+		while(true) {
 			
-			System.out.println("1. Inserimento Aree SSD;");
+			System.out.println("1. Inserimento Itinerario;");
 			System.out.println("2. Fine;");
 			
 			String line = reader.readLine();
@@ -46,45 +46,45 @@ while(true) {
 
 	private static void creaItinerario()  throws IOException, BusinessException {
 
-		//gli chiedo tutti gli attributi
-		System.out.print("Nome:");
+		//chiedo tutti gli attributi
+		System.out.println("Nome:");
 		String name = reader.readLine();
 		
-		System.out.print("Difficoltà:");
-		Difficolty difficolty = Difficolty.difficile;     
+		//System.out.print("Difficoltà:");
+		//Difficolty difficolty = Difficolty.difficile;     
 	
-		System.out.print("Dislivello:");
+		System.out.println("Dislivello:");
 		Double difference = (double) reader.read();
 		
-		System.out.print("Durata:");
+		System.out.println("Durata:");
 		Double duration = (double) reader.read();
 		
-		System.out.print("Indirizzo:");
+		System.out.println("Indirizzo:");
 		String address = reader.readLine();
 		
-		System.out.print("Latitudine:");
+		System.out.println("Latitudine:");
 		Double latitude = (double) reader.read();
 		
-		System.out.print("Longitudine:");
+		System.out.println("Longitudine:");
 		Double longitude = (double) reader.read();
 		
-		System.out.print("Stagione Consigliata:");
-		RecommendedSeason recommendedSeason = RecommendedSeason.autunno;
+		//System.out.print("Stagione Consigliata:");
+		//RecommendedSeason recommendedSeason = RecommendedSeason.autunno;
 		
-		System.out.print("Descrizione:");
+		System.out.println("Descrizione:");
 		String description = reader.readLine();
 		
 		
 		Itinerary itinerary = new Itinerary();
 		
 		itinerary.setName(name);
-		itinerary.setDifficolty(difficolty);
+		//itinerary.setDifficolty(difficolty);
 		itinerary.setDifference(difference);
 		itinerary.setDuration(duration);
 		itinerary.setAddress(address);
 		itinerary.setLatitude(latitude);
 		itinerary.setLongitude(longitude);
-		itinerary.setRecommendedSeason(recommendedSeason);
+		//itinerary.setRecommendedSeason(recommendedSeason);
 		itinerary.setDescription(description);
 		
 		itineraryService.createItinerary(itinerary);
