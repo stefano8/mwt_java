@@ -13,17 +13,27 @@ import it.univaq.disim.mwt.montaintrack.domain.Itinerary;
 
 public class JDBCItineraryService implements ItineraryService{
 
+	private String url;
+	private String username;
+	private String password;
+	
+	//costruttore
+	public JDBCItineraryService(String url, String username, String password) {
+		super();
+		this.url = url;
+		this.username = username;
+		this.password = password;
+		
+	}
+	
 	@Override
 	public void createItinerary(Itinerary itinerary) throws BusinessException {
 		
 		Connection con = null;
 		PreparedStatement ps = null;
-		Statement st = null;
-		int rs = 0;
-		
 		
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mwt_java", "mwt", "mwt");
+			con = DriverManager.getConnection(url, username, password);
 			
 			 String sql = "insert into itineraries (id, name, difficolty, difference, duration, address, latitude, longitude, recommended_season, description)  "
 			 		+ "values (1, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -40,7 +50,7 @@ public class JDBCItineraryService implements ItineraryService{
 			 ps.setString(9, itinerary.getDescription());
 			 
 			 
-			 rs = ps.executeUpdate();
+			 ps.executeUpdate();
 			 
 					
 		} catch (SQLException e) {
@@ -49,9 +59,9 @@ public class JDBCItineraryService implements ItineraryService{
 		
 		} finally {
 			
-			if (st != null) {
+			if (ps != null) {
 				try {
-					st.close();
+					ps.close();
 				}catch (SQLException e) {
 					// TODO: handle exception
 				}

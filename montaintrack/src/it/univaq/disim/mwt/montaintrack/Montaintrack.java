@@ -16,8 +16,10 @@ public class Montaintrack {
 	//per poter leggere linea per linea, usiamo questa classe (input stream leggeva byte per byte)
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-	private static ItineraryService itineraryService = new JDBCItineraryService();
+	//per connessione aal database
+	private static ItineraryService itineraryService = new JDBCItineraryService("jdbc:mysql://localhost:3306/mwt_java", "mwt", "mwt");
 
+	
 	public static void main(String[] args) throws IOException, BusinessException, ClassNotFoundException {
 		
 		Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +37,7 @@ public class Montaintrack {
 					break;
 				case "2":
 					return;
-	
+					
 				default:
 					;
 			
