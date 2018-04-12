@@ -39,14 +39,14 @@ public class JDBCItineraryService implements ItineraryService{
 			 		+ "values (1, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			 
 			 ps = con.prepareStatement(sql);
-			 ps.setString(1, itinerary.getName());
-			 ps.setString(2, "facile");
+			 ps.setString(1, itinerary.getName());  //si mette autoincrement su DB
+			 ps.setString(2, itinerary.getDifficolty().toString());
 			 ps.setDouble(3, itinerary.getDifference());
 			 ps.setDouble(4,itinerary.getDuration());
 			 ps.setString(5, itinerary.getAddress());
 			 ps.setDouble(6, itinerary.getLatitude());
 			 ps.setDouble(7, itinerary.getLongitude());
-			 ps.setString(8, "estate");
+			 ps.setString(8, itinerary.getRecommendedSeason().toString());
 			 ps.setString(9, itinerary.getDescription());
 			 
 			 

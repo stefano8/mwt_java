@@ -1,21 +1,25 @@
 package it.univaq.disim.mwt.montaintrack.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Itinerary {
 
 	private Long id;
 	private String name;
 	private Difficolty difficolty;
-	private Double difference;
-	private Double duration;
+	private double difference;
+	private double duration;
 	private String address;
-	private Double latitude;
-	private Double longitude;
+	private double latitude;
+	private double longitude;
 	private RecommendedSeason recommendedSeason;
 	private String description;
 	// relazione con Image (1,1)
 	private Image image;
 	//relazione con Category (N,N)
-	private Category[] categoriesItineraries;
+	private Set<Category> categories = new HashSet<>(); //private Category[] categories;
+		
 
 	public Long getId() {
 		return id;
@@ -81,13 +85,7 @@ public class Itinerary {
 		this.image = image;
 	}
 
-	public Category[] getCategoriesItineraries() {
-		return categoriesItineraries;
-	}
-
-	public void setCategoriesItineraries(Category[] categoriesItineraries) {
-		this.categoriesItineraries = categoriesItineraries;
-	}
+	
 
 	public Double getLatitude() {
 		return latitude;
@@ -111,6 +109,14 @@ public class Itinerary {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
 	}
 
 }
